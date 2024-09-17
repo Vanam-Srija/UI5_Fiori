@@ -1,0 +1,65 @@
+<!-- <mvc:View
+   controllerName="ui5.walkthrough.controller.App"
+   xmlns="sap.m"
+   xmlns:mvc="sap.ui.core.mvc">
+   <Button
+      text="Say Hello"
+      press=".onShowHello"/>
+</mvc:View> -->
+
+<mvc:View
+   controllerName="ui5.walkthrough.controller.App"
+   xmlns="sap.m"
+   xmlns:mvc="sap.ui.core.mvc"
+   xmlns:l="sap.ui.layout"
+   xmlns:f="sap.ui.layout.form">
+  <VBox class="sapUiSmallMargin">
+  <!-- link syntax -->
+  <Link
+		    text="Open SAP Homepage"
+		    target="_blank"
+		    href="http://www.sap.com" />
+  <!-- Simple Form -->
+		<f:SimpleForm id="SimpleFormDisplay354"
+			editable="false"
+			layout="ResponsiveGridLayout"
+			title="Address"
+			labelSpanXL="3"
+			labelSpanL="3"
+			labelSpanM="3"
+			labelSpanS="12"
+			adjustLabelSpan="false"
+			emptySpanXL="4"
+			emptySpanL="4"
+			emptySpanM="4"
+			emptySpanS="0"
+			columnsXL="1"
+			columnsL="1"
+			columnsM="1"
+			singleContainerFullSize="false" >
+			
+			<f:content>
+		    <Label text="Name" labelFor="wrappingName" />
+			<Input id="wrappingName"/>
+            <Label text="Street/No." labelFor="streetNo" />
+			<Input id="streetNo"/>
+        //
+			<Label text="ZIP Code/City" labelFor="zipcode" />
+			<Input id="zipcode"/>
+			<Label text="Country" labelFor="country" />
+			<Input id="country"/>
+			</f:content>
+		</f:SimpleForm>
+	</VBox>
+	<!-- Button -->
+   <Button
+      text="{i18n>showHelloButtonText}"
+      press=".onShowHello"/>
+	<!-- Input -->
+   <Input
+      value="{/recipient/name}"
+      description="Hello {/recipient/name}"
+      valueLiveUpdate="true"
+      width="60%"/>
+	<Image src="http://www.sap.com/global/ui/images/global/sap-logo.png"/>
+</mvc:View>
