@@ -4,7 +4,7 @@ sap.ui.define([
 	"use strict";
 
 	XMLView.create({
-		viewName: "ui5.walkthrough.view.App"
+		viewName: "ui5.sapfioribasics.view.App"
 	}).then((oView) => oView.placeAt("content"));
 });
 

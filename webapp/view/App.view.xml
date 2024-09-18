@@ -8,14 +8,15 @@
 </mvc:View> -->
 
 <mvc:View
-   controllerName="ui5.walkthrough.controller.App"
+   controllerName="ui5.sapfioribasics.controller.App"
    xmlns="sap.m"
    xmlns:mvc="sap.ui.core.mvc"
    xmlns:l="sap.ui.layout"
+   xmlns:core="sap.ui.core"
    xmlns:f="sap.ui.layout.form">
-  <VBox class="sapUiSmallMargin">
+  <VBox  id="smallMargin" class="sapUiSmallMargin">
   <!-- link syntax -->
-  <Link
+  <Link id = "LinkId"
 		    text="Open SAP Homepage"
 		    target="_blank"
 		    href="http://www.sap.com" />
@@ -39,27 +40,46 @@
 			singleContainerFullSize="false" >
 			
 			<f:content>
-		    <Label text="Name" labelFor="wrappingName" />
-			<Input id="wrappingName"/>
-            <Label text="Street/No." labelFor="streetNo" />
-			<Input id="streetNo"/>
-        //
-			<Label text="ZIP Code/City" labelFor="zipcode" />
-			<Input id="zipcode"/>
-			<Label text="Country" labelFor="country" />
-			<Input id="country"/>
+		    <Label id = "LabelId" text="Name" labelFor="wrappingName" />
+			<Input id="wrappingName" value="{/recipient/wrappingName}"/>
+			
+
+			<core:Icon id = "iconId"
+			src="sap-icon://doctor"
+			class="size4"
+			color="#1C4C98" >
+			<core:layoutData>
+				<FlexItemData id ="FlexItemId" growFactor="1" />
+			</core:layoutData>
+		    </core:Icon>
+
+            <Label  id ="streetId"  text="Street/No." labelFor="streetNo" />
+			<Input id="streetNo" value="{/recipient/streetNo}" />
+        
+			<Label  id = "zipcodeid" text="ZIP Code/City" labelFor="zipcode" />
+			<Input id="zipcode" value="{/recipient/zipcode}"/>
+			<Label  id = "countryId" text="Country" labelFor="country" />
+			<Input id="country"  value="{/recipient/country}"/>
 			</f:content>
 		</f:SimpleForm>
 	</VBox>
 	<!-- Button -->
-   <Button
+   <!-- <Button
       text="{i18n>showHelloButtonText}"
+      press=".onShowHello"/> -->
+
+	  <Button id="button"
+      text="Say Hello"
       press=".onShowHello"/>
 	<!-- Input -->
-   <Input
+   <Input id ="inputValue"
       value="{/recipient/name}"
       description="Hello {/recipient/name}"
       valueLiveUpdate="true"
       width="60%"/>
-	<Image src="http://www.sap.com/global/ui/images/global/sap-logo.png"/>
+	<Image id="ImageId" src="http://www.sap.com/global/ui/images/global/sap-logo.png"/>
+	
+<Text id="textid" text="Lorem ipsum dolor st amet, consetetur sadipscing elitr, sed diam nonumy eirmod 
+tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et 
+accusam et justo duo dolores et ea rebum." />
 </mvc:View>

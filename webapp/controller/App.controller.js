@@ -6,23 +6,26 @@ sap.ui.define([
 ], (Controller, MessageToast, JSONModel, ResourceModel) => {
   "use strict";
 
-  return Controller.extend("ui5.walkthrough.controller.App", {
+  return Controller.extend("ui5.sapfioribasics.controller.App", {
     onInit() {
         // set data model on view
         const oData = {
            recipient : {
-              name : "World"
+              name : "World",
+              wrappingName : "Srija",
+              streetNo : "Chaitanya Bharathi",
+              zipcode : "500081",
+              country : "India"
            }
         };
-        const oModel = new JSONModel(oData);
 
-        //
-        this.getView().setModel(oModel,"viewModel");
-        
-        
+        const oModel = new JSONModel(oData);
+        this.getView().setModel(oModel);
+
+
         // set i18n model on view
         const i18nModel = new ResourceModel({
-           bundleName: "ui5.walkthrough.i18n.i18n"
+           bundleName: "ui5.sapfioribasics.i18n.i18n"
         });
         this.getView().setModel(i18nModel, "i18n");
      },
@@ -32,7 +35,6 @@ sap.ui.define([
         const oBundle = this.getView().getModel("i18n").getResourceBundle();
         const sRecipient = this.getView().getModel().getProperty("/recipient/name");
         const sMsg = oBundle.getText("helloMsg", [sRecipient]);
-
         // show message
         MessageToast.show(sMsg);
      }
