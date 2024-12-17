@@ -5,9 +5,11 @@
 sap.ui.define([
         "sap/ui/core/UIComponent",
         "sap/ui/Device",
-        "com/sap/fiori/basics/sapfioribasics/model/models"
+        "com/sap/fiori/basics/sapfioribasics/model/models",
+        "sap/ui/model/json/JSONModel"
+
     ],
-    function (UIComponent, Device, models) {
+    function (UIComponent, Device, models,JSONModel) {
         "use strict";
 
         return UIComponent.extend("com.sap.fiori.basics.sapfioribasics.Component", {
@@ -25,10 +27,11 @@ sap.ui.define([
                 UIComponent.prototype.init.apply(this, arguments);
 
                 // enable routing
+               // this.getRouter().initialize();
                 this.getRouter().initialize();
 
                 // set the device model
-                this.setModel(models.createDeviceModel(), "device");
+               // this.setModel(models.createDeviceModel(), "device");
             }
         });
     }

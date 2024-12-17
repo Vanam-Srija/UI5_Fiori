@@ -1,0 +1,46 @@
+<mvc:View
+   controllerName="ui5.sapfioribasics.controller.Project"
+   xmlns="sap.m"
+   xmlns:mvc="sap.ui.core.mvc"
+   xmlns:l="sap.ui.layout"
+   xmlns:core="sap.ui.core"
+   xmlns:f="sap.ui.layout.form"
+   displayBlock="true">
+   <VBox>
+                <Table id="projectID" items="{project>/Projects}">
+                    <columns>
+                        <Column width="12em">
+                            <Text text="Product Name" />
+                        </Column>
+                        <Column width="12em">
+                            <Text text="Quantity" />
+                        </Column>
+                        <Column width="12em">
+                            <Text text="Extended Price" />
+                        </Column>
+                        <Column width="12em">
+                            <Text text="Shipper Name" />
+                        </Column>
+                         <Column width="12em">
+                            <Text text="Shipped Date" />
+                        </Column>
+                        <Column width="12em">
+                            <Text text="Action" />
+                        </Column>
+                    </columns>
+                    <items>
+                    <ColumnListItem vAlign="Middle">
+                        <cells>
+                            <Text text="{project>ProductName}" />
+                            <Text text="{project>Quantity}" />
+                            <Text text="{project>ExtendedPrice}" />
+                            <Text text="{project>ShipperName}" />
+                            <Text text="{project>ShippedDate}" />
+                            <Button text="Action" press=".onActionButtonPress" />
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+            </VBox>
+
+ </mvc:View>

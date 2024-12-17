@@ -6,7 +6,8 @@ function (Controller) {
 
     return Controller.extend("com.sap.fiori.basics.sapfioribasics.controller.Main", {
         onInit: function () {
-
+        
         }
+        
     });
 });

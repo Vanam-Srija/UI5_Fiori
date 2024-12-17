@@ -68,8 +68,18 @@
       "i18n": {
         "type": "sap.ui.model.resource.ResourceModel",
         "settings": {
-          "bundleName": "com.sap.fiori.basics.sapfioribasics.i18n.i18n"
+          "bundleName": "com.sap.fiori.basics.sapfioribasics.i18n.i18n",
+          "supportedLocales": [""],
+          "fallbackLocale": ""
         }
+      },
+      "invoice": {
+        "type": "sap.ui.model.json.JSONModel",
+        "uri": "Invoices.json"
+      },
+      "project": {
+        "type": "sap.ui.model.json.JSONModel",
+        "uri": "Projects.json"
       }
     },
     "resources": {
@@ -82,29 +92,50 @@
     "routing": {
       "config": {
         "routerClass": "sap.m.routing.Router",
+        "type": "View",
         "viewType": "XML",
         "async": true,
         "viewPath": "com.sap.fiori.basics.sapfioribasics.view",
         "controlAggregation": "pages",
         "controlId": "app",
-        "clearControlAggregation": false
+        "clearControlAggregation": false,
+        "transition": "slide",
+        "bypassed": {
+          "target": "notFound"
+        }
       },
       "routes": [
         {
-          "name": "RouteMain",
-          "pattern": ":?query:",
-          "target": [
-            "TargetMain"
-          ]
+          "pattern": "",
+          "name": "appHome",
+          "target": "home"
+        },
+        {
+          "pattern": "employeeList",
+          "name": "EmployeeList",
+          "target": "EmployeeList"
         }
       ],
       "targets": {
-        "TargetMain": {
-          "viewType": "XML",
-          "transition": "slide",
-          "clearControlAggregation": false,
-          "viewId": "Main",
-          "viewName": "Main"
+        "home": {
+          "id": "app",
+          "name": "App",
+          "level": 1
+        },
+        "EmployeeList": {
+          "viewId": "EmployeeList",
+          "viewName": "EmployeeList",
+          "viewLevel": 1
+        },
+        "Overview": {
+          "id": "Overview",
+          "name": "Overview",
+          "level": 1
+        },
+        "notFound": {
+          "id": "notFound",
+          "name": "NotFound",
+          "transition": "show"
         }
       }
     },
@@ -119,7 +150,4 @@
     "public": true,
     "service": "comsapfioribasicssapfioribasics"
   }
-  
-
-  
 }
